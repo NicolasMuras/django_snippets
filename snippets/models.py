@@ -10,6 +10,12 @@ class Language(models.Model):
     name = models.CharField(max_length=50, null = False)
     slug = models.CharField(max_length=50, null = False)
 
+    class Meta:
+        verbose_name = 'Lenguaje'
+        verbose_name_plural = 'Lenguajes'
+
+    def __str__(self):
+        return self.name
 
 class Snippet(models.Model):
 
@@ -22,3 +28,9 @@ class Snippet(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name = 'Lenguaje', null = False)
     public = models.BooleanField(default = False)
 
+    class Meta:
+        verbose_name = 'Snippet'
+        verbose_name_plural = 'Snippets'
+
+    def __str__(self):
+        return self.name
